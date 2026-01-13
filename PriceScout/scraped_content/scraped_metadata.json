@@ -1,0 +1,130 @@
+{
+  "cnn": {
+    "provider_name": "cnn",
+    "url": "https://www.cnn.com",
+    "domain": "www.cnn.com",
+    "scraped_at": "2025-12-16T19:42:13.855236",
+    "formats": [
+      "markdown",
+      "html"
+    ],
+    "success": false,
+    "error": "'Firecrawl' object has no attribute 'scrape_url'"
+  },
+  "yahoo_finance": {
+    "provider_name": "yahoo_finance",
+    "url": "https://finance.yahoo.com",
+    "domain": "finance.yahoo.com",
+    "scraped_at": "2025-12-16T19:44:09.928192",
+    "formats": [
+      "markdown",
+      "html"
+    ],
+    "success": false,
+    "error": "'Firecrawl' object has no attribute 'scrape_url'"
+  },
+  "google_finance_nvidia": {
+    "provider_name": "google_finance_nvidia",
+    "url": "https://www.google.com/finance/quote/NVDA:NASDAQ",
+    "domain": "www.google.com",
+    "scraped_at": "2025-12-16T19:44:44.728705",
+    "formats": [
+      "markdown",
+      "html"
+    ],
+    "success": false,
+    "error": "'Firecrawl' object has no attribute 'scrape_url'"
+  },
+  "yahoo_finance_nvidia": {
+    "provider_name": "yahoo_finance_nvidia",
+    "url": "https://finance.yahoo.com/quote/NVDA",
+    "domain": "finance.yahoo.com",
+    "scraped_at": "2025-12-16T19:44:44.728785",
+    "formats": [
+      "markdown",
+      "html"
+    ],
+    "success": false,
+    "error": "'Firecrawl' object has no attribute 'scrape_url'"
+  },
+  "marketwatch_nvidia": {
+    "provider_name": "marketwatch_nvidia",
+    "url": "https://www.marketwatch.com/investing/stock/nvda",
+    "domain": "www.marketwatch.com",
+    "scraped_at": "2025-12-16T19:44:44.728852",
+    "formats": [
+      "markdown",
+      "html"
+    ],
+    "success": false,
+    "error": "'Firecrawl' object has no attribute 'scrape_url'"
+  },
+  "cloudrift": {
+    "provider_name": "cloudrift",
+    "url": "https://cloudrift.ai",
+    "domain": "cloudrift.ai",
+    "scraped_at": "2025-12-16T19:55:17.439658",
+    "formats": [
+      "markdown",
+      "html"
+    ],
+    "success": true,
+    "content_files": {
+      "markdown": "cloudrift_markdown.txt",
+      "html": "cloudrift_html.txt"
+    },
+    "title": "Rent Datacenter GPUs for AI & ML \u2022 Cloudrift",
+    "description": "Rent powerful GPUs like RTX 4090 RTX 5090 and RTX Pro 6000 for AI and ML. Fast, affordable hourly compute across cloud, on-prem, and edge infrastructure."
+  },
+  "deepinfra": {
+    "provider_name": "deepinfra",
+    "url": "https://deepinfra.com",
+    "domain": "deepinfra.com",
+    "scraped_at": "2025-12-16T19:55:28.294461",
+    "formats": [
+      "markdown",
+      "html"
+    ],
+    "success": true,
+    "content_files": {
+      "markdown": "deepinfra_markdown.txt",
+      "html": "deepinfra_html.txt"
+    },
+    "title": "Machine Learning Models and Infrastructure | Deep Infra",
+    "description": "Deep Infra offers cost-effective, scalable, easy-to-deploy, and production-ready machine-learning models and infrastructures for deep-learning models."
+  },
+  "fireworks": {
+    "provider_name": "fireworks",
+    "url": "https://fireworks.ai/pricing#serverless-pricing",
+    "domain": "fireworks.ai",
+    "scraped_at": "2025-12-16T19:47:38.950284",
+    "formats": [
+      "markdown",
+      "html"
+    ],
+    "success": true,
+    "content_files": {
+      "markdown": "fireworks_markdown.txt",
+      "html": "fireworks_html.txt"
+    },
+    "title": "Fireworks - Pricing",
+    "description": "Choose the plan thats right for you."
+  },
+  "groq": {
+    "provider_name": "groq",
+    "url": "https://groq.com/pricing",
+    "domain": "groq.com",
+    "scraped_at": "2025-12-16T19:47:42.900319",
+    "formats": [
+      "markdown",
+      "html"
+    ],
+    "success": true,
+    "content_files": {
+      "markdown": "groq_markdown.txt",
+      "html": "groq_html.txt"
+    },
+    "title": "Groq On-Demand Pricing for Tokens-as-a-Service | Groq is fast, low cost inference.",
+    "description": "Groq powers leading openly-available AI models. View the pricing of our core models including GPT-OSS, Kimi K2, Qwen3 32B, and more."
+  }
+}

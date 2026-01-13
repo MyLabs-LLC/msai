@@ -1,0 +1,20 @@
+{
+    "mcpServers": {        
+        "llm_inference": {
+            "command": "python",
+            "args": ["-u", "/home/lence/msai/PriceScout/starter_server.py"]
+        },
+        "sqlite": {
+            "command": "mcp-server-sqlite",
+            "args": ["--db-path", "/home/lence/msai/PriceScout/test.db"]
+        },
+        "filesystem": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-filesystem",
+                "."
+            ]
+        }
+    }
+}

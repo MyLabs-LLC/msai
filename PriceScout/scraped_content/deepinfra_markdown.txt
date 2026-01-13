@@ -1,0 +1,677 @@
+We use essential cookies to make our site work. With your consent, we may also use non-essential cookies to improve user experience and analyze website traffic…
+
+AcceptReject
+
+[FLUX.2 is live!](https://deepinfra.com/models?q=flux-2) High-fidelity image generation made simple.
+
+[Models](https://deepinfra.com/models)
+
+[Automatic Speech Recognition](https://deepinfra.com/models/automatic-speech-recognition) [Embeddings](https://deepinfra.com/models/embeddings) [Reranker](https://deepinfra.com/models/reranker) [Text Generation](https://deepinfra.com/models/text-generation) [Text To Image](https://deepinfra.com/models/text-to-image) [Text To Speech](https://deepinfra.com/models/text-to-speech) [Text To Video](https://deepinfra.com/models/text-to-video) [Zero Shot Image Classification](https://deepinfra.com/models/zero-shot-image-classification)
+
+[Docs](https://deepinfra.com/docs)
+
+[Pricing](https://deepinfra.com/pricing)
+
+[GPUs](https://deepinfra.com/gpu-instances)
+
+[Chat](https://deepinfra.com/chat)
+
+[DeepStart](https://deepinfra.com/deepstart)
+
+[Blog](https://deepinfra.com/blog)
+
+Feedback
+
+[Contact Sales](https://deepinfra.com/contact-sales)
+
+[Log In](https://deepinfra.com/login?from=%2Fdash)
+
+LOW-COST
+
+FAST
+
+SIMPLE
+
+RELIABLE
+
+## AI Inference
+
+Accelerate your AI with developer-friendly APIs designed for performance and cost-efficiency.
+
+[Let's Go](https://deepinfra.com/dash) [Book a consultation](https://deepinfra.com/contact-sales)
+
+[![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-aitext-generation\\
+\\
+DeepSeek-V3.1\\
+\\
+$0.21/M in • $0.79/M out](https://deepinfra.com/deepseek-ai/DeepSeek-V3.1)
+
+[![openai logo](https://deepinfra.com/_next/static/media/openai.d4cb66d6.svg)\\
+\\
+openaitext-generation\\
+\\
+gpt-oss-120b\\
+\\
+$0.039/M in • $0.19/M out](https://deepinfra.com/openai/gpt-oss-120b)
+
+[![openai logo](https://deepinfra.com/_next/static/media/openai.d4cb66d6.svg)\\
+\\
+openaitext-generation\\
+\\
+gpt-oss-20b\\
+\\
+$0.03/M in • $0.14/M out](https://deepinfra.com/openai/gpt-oss-20b)
+
+[![Qwen logo](https://deepinfra.com/_next/static/media/qwen.d6d74288.svg)\\
+\\
+Qwentext-generation\\
+\\
+Qwen3-Coder-480B-A35B-Instruct-Turbo\\
+\\
+$0.28/M in • $1.20/M out](https://deepinfra.com/Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo)
+
+[![nvidia logo](https://deepinfra.com/_next/static/media/nvidia.2165073d.svg)\\
+\\
+nvidiatext-generation\\
+\\
+Nemotron-3-Nano-30B-A3B\\
+\\
+$0.06/M in • $0.24/M out](https://deepinfra.com/nvidia/Nemotron-3-Nano-30B-A3B)
+
+[![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-aitext-generation\\
+\\
+DeepSeek-V3.2\\
+\\
+$0.26/M in • $0.39/M out](https://deepinfra.com/deepseek-ai/DeepSeek-V3.2)
+
+[![MiniMaxAI logo](https://deepinfra.com/_next/static/media/minimaxai.b1b936ac.webp)\\
+\\
+MiniMaxAItext-generation\\
+\\
+MiniMax-M2\\
+\\
+$0.254/M in • $1.02/M out](https://deepinfra.com/MiniMaxAI/MiniMax-M2)
+
+[![NVIDIA logo](https://deepinfra.com/_next/static/media/nvidia.2165073d.svg)\\
+\\
+NVIDIAgpu-rental\\
+\\
+On-Demand DGX B200 GPUs\\
+\\
+$2.49 / instance-hour](https://deepinfra.com/gpu-instances)
+
+[![moonshotai logo](https://deepinfra.com/_next/static/media/moonshotai.52a1c444.svg)\\
+\\
+moonshotaitext-generation\\
+\\
+Kimi-K2-Thinking\\
+\\
+$0.47/M in • $2.00/M out](https://deepinfra.com/moonshotai/Kimi-K2-Thinking)
+
+[![zai-org logo](https://deepinfra.com/_next/static/media/zai-org.a74f3c2b.jpg)\\
+\\
+zai-orgtext-generation\\
+\\
+GLM-4.6\\
+\\
+$0.43/M in • $1.75/M out](https://deepinfra.com/zai-org/GLM-4.6)
+
+[![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-aitext-generation\\
+\\
+DeepSeek-OCR\\
+\\
+$0.03/M in • $0.10/M out](https://deepinfra.com/deepseek-ai/DeepSeek-OCR)
+
+[![allenai logo](https://deepinfra.com/_next/static/media/allenai.56c26b04.png)\\
+\\
+allenaitext-generation\\
+\\
+olmOCR-2-7B-1025\\
+\\
+$0.09/M in • $0.19/M out](https://deepinfra.com/allenai/olmOCR-2-7B-1025)
+
+[![PaddlePaddle logo](https://deepinfra.com/_next/static/media/paddlepaddle.1ba1ffe4.webp)\\
+\\
+PaddlePaddletext-generation\\
+\\
+PaddleOCR-VL-0.9B\\
+\\
+$0.14/M in • $0.80/M out](https://deepinfra.com/PaddlePaddle/PaddleOCR-VL-0.9B)
+
+[![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-aitext-generation\\
+\\
+DeepSeek-V3.1-Terminus\\
+\\
+$0.21/M in • $0.79/M out](https://deepinfra.com/deepseek-ai/DeepSeek-V3.1-Terminus)
+
+[![Qwen logo](https://deepinfra.com/_next/static/media/qwen.d6d74288.svg)\\
+\\
+Qwentext-generation\\
+\\
+Qwen3-Next-80B-A3B-Instruct\\
+\\
+$0.09/M in • $1.10/M out](https://deepinfra.com/Qwen/Qwen3-Next-80B-A3B-Instruct)
+
+[![moonshotai logo](https://deepinfra.com/_next/static/media/moonshotai.52a1c444.svg)\\
+\\
+moonshotaitext-generation\\
+\\
+Kimi-K2-Instruct-0905\\
+\\
+$0.40/M in • $2.00/M out](https://deepinfra.com/moonshotai/Kimi-K2-Instruct-0905)
+
+[![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-aitext-generation\\
+\\
+DeepSeek-V3.1\\
+\\
+$0.21/M in • $0.79/M out](https://deepinfra.com/deepseek-ai/DeepSeek-V3.1)
+
+[![openai logo](https://deepinfra.com/_next/static/media/openai.d4cb66d6.svg)\\
+\\
+openaitext-generation\\
+\\
+gpt-oss-120b\\
+\\
+$0.039/M in • $0.19/M out](https://deepinfra.com/openai/gpt-oss-120b)
+
+[![openai logo](https://deepinfra.com/_next/static/media/openai.d4cb66d6.svg)\\
+\\
+openaitext-generation\\
+\\
+gpt-oss-20b\\
+\\
+$0.03/M in • $0.14/M out](https://deepinfra.com/openai/gpt-oss-20b)
+
+[![Qwen logo](https://deepinfra.com/_next/static/media/qwen.d6d74288.svg)\\
+\\
+Qwentext-generation\\
+\\
+Qwen3-Coder-480B-A35B-Instruct-Turbo\\
+\\
+$0.28/M in • $1.20/M out](https://deepinfra.com/Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo)
+
+[![nvidia logo](https://deepinfra.com/_next/static/media/nvidia.2165073d.svg)\\
+\\
+nvidiatext-generation\\
+\\
+Nemotron-3-Nano-30B-A3B\\
+\\
+$0.06/M in • $0.24/M out](https://deepinfra.com/nvidia/Nemotron-3-Nano-30B-A3B)
+
+[![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-aitext-generation\\
+\\
+DeepSeek-V3.2\\
+\\
+$0.26/M in • $0.39/M out](https://deepinfra.com/deepseek-ai/DeepSeek-V3.2)
+
+[![MiniMaxAI logo](https://deepinfra.com/_next/static/media/minimaxai.b1b936ac.webp)\\
+\\
+MiniMaxAItext-generation\\
+\\
+MiniMax-M2\\
+\\
+$0.254/M in • $1.02/M out](https://deepinfra.com/MiniMaxAI/MiniMax-M2)
+
+[![NVIDIA logo](https://deepinfra.com/_next/static/media/nvidia.2165073d.svg)\\
+\\
+NVIDIAgpu-rental\\
+\\
+On-Demand DGX B200 GPUs\\
+\\
+$2.49 / instance-hour](https://deepinfra.com/gpu-instances)
+
+[![moonshotai logo](https://deepinfra.com/_next/static/media/moonshotai.52a1c444.svg)\\
+\\
+moonshotaitext-generation\\
+\\
+Kimi-K2-Thinking\\
+\\
+$0.47/M in • $2.00/M out](https://deepinfra.com/moonshotai/Kimi-K2-Thinking)
+
+[![zai-org logo](https://deepinfra.com/_next/static/media/zai-org.a74f3c2b.jpg)\\
+\\
+zai-orgtext-generation\\
+\\
+GLM-4.6\\
+\\
+$0.43/M in • $1.75/M out](https://deepinfra.com/zai-org/GLM-4.6)
+
+[![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-aitext-generation\\
+\\
+DeepSeek-OCR\\
+\\
+$0.03/M in • $0.10/M out](https://deepinfra.com/deepseek-ai/DeepSeek-OCR)
+
+[![allenai logo](https://deepinfra.com/_next/static/media/allenai.56c26b04.png)\\
+\\
+allenaitext-generation\\
+\\
+olmOCR-2-7B-1025\\
+\\
+$0.09/M in • $0.19/M out](https://deepinfra.com/allenai/olmOCR-2-7B-1025)
+
+[![PaddlePaddle logo](https://deepinfra.com/_next/static/media/paddlepaddle.1ba1ffe4.webp)\\
+\\
+PaddlePaddletext-generation\\
+\\
+PaddleOCR-VL-0.9B\\
+\\
+$0.14/M in • $0.80/M out](https://deepinfra.com/PaddlePaddle/PaddleOCR-VL-0.9B)
+
+[![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-aitext-generation\\
+\\
+DeepSeek-V3.1-Terminus\\
+\\
+$0.21/M in • $0.79/M out](https://deepinfra.com/deepseek-ai/DeepSeek-V3.1-Terminus)
+
+[![Qwen logo](https://deepinfra.com/_next/static/media/qwen.d6d74288.svg)\\
+\\
+Qwentext-generation\\
+\\
+Qwen3-Next-80B-A3B-Instruct\\
+\\
+$0.09/M in • $1.10/M out](https://deepinfra.com/Qwen/Qwen3-Next-80B-A3B-Instruct)
+
+[![moonshotai logo](https://deepinfra.com/_next/static/media/moonshotai.52a1c444.svg)\\
+\\
+moonshotaitext-generation\\
+\\
+Kimi-K2-Instruct-0905\\
+\\
+$0.40/M in • $2.00/M out](https://deepinfra.com/moonshotai/Kimi-K2-Instruct-0905)
+
+[Let's Go](https://deepinfra.com/dash) [Book a consultation](https://deepinfra.com/contact-sales)
+
+![Abacus.AI](https://deepinfra.com/_next/static/media/abacus-ai.acac7a56.webp)
+
+![Hugging Face](https://deepinfra.com/_next/static/media/huggingface.ec46bc6a.webp)
+
+![interface.ai](https://deepinfra.com/_next/static/media/interface-ai.991a333c.webp)
+
+![Salesforce](https://deepinfra.com/_next/static/media/salesforce.4f44a18a.webp)
+
+![Requesty](https://deepinfra.com/_next/static/media/requesty.05054ab5.webp)
+
+![Abacus.AI](https://deepinfra.com/_next/static/media/abacus-ai.acac7a56.webp)
+
+![Hugging Face](https://deepinfra.com/_next/static/media/huggingface.ec46bc6a.webp)
+
+![interface.ai](https://deepinfra.com/_next/static/media/interface-ai.991a333c.webp)
+
+![Salesforce](https://deepinfra.com/_next/static/media/salesforce.4f44a18a.webp)
+
+![Requesty](https://deepinfra.com/_next/static/media/requesty.05054ab5.webp)
+
+## Scale to trillions of tokens without breaking the bank
+
+Low pay-as-you-go pricing - no long-term contracts, no hidden fees, no surprises. Startup? Enterprise? We can scale. We are there for you with our simple APIs and hands-on technical support.
+
+## Inference Tailored to You
+
+An inference partner that meets your needs. Whether you're optimizing for cost, latency, throughput or scale - we design the solution around your priorities. DeepInfra provides 100+ models to cover all your needs.
+
+## Zero Retention. Compliant. Secure.
+
+With our zero retention policy your inputs, your outputs, and your user data stay private. DeepInfra is SOC 2 and ISO 27001 certified. We follow the best practices in information security and privacy.
+
+## Our Hardware. Our Data Centers. Your Performance Edge.
+
+DeepInfra runs on our own cutting-edge inference optimised infrastructure, in secure US-based data centers. Better performance and reliability for you.
+
+## Models
+
+## Explore our Featured Models
+
+View Alltext-generationautomatic-speech-recognitiontext-to-speech
+
+[text-generation\\
+\\
+![nvidia logo](https://deepinfra.com/_next/static/media/nvidia.2165073d.svg)\\
+\\
+nvidia/\\
+\\
+Nemotron-3-Nano-30B-A3B\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![nvidia/Nemotron-3-Nano-30B-A3B cover image](https://shared.deepinfra.com/models/nvidia/Nemotron-3-Nano-30B-A3B/cover_image.fe979d7e84a6a3ea8700a8c9b5179e4c0943ddc457cd841ae84bd9e06fef4b9b.webp)\\
+\\
+NVIDIA Nemotron 3 Nano is an open reasoning model optimized for fast, cost-efficient inference. Built with a hybrid MoE and Mamba architecture and trained on NVIDIA-curated synthetic reasoning data, it delivers strong multi-step reasoning with stable latency and predictable performance for agentic and production workloads.\\
+\\
+bfloat16\\
+\\
+256k\\
+\\
+$0.06 in, $0.24 out / 1M](https://deepinfra.com/nvidia/Nemotron-3-Nano-30B-A3B)
+
+[text-generation\\
+\\
+![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-ai/\\
+\\
+DeepSeek-V3.2\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![deepseek-ai/DeepSeek-V3.2 cover image](https://shared.deepinfra.com/models/deepseek-ai/DeepSeek-V3.2/cover_image.600309da9c26caecc8dd1c1b2cdfe869d5e0cb2d5f19bb6f6325b6e59e358509.webp)\\
+\\
+DeepSeek-V3.2 is a large language model designed to harmonize high computational efficiency with strong reasoning and agentic tool-use performance. It introduces DeepSeek Sparse Attention (DSA), a fine-grained sparse attention mechanism that reduces training and inference cost while preserving quality in long-context scenarios. A scalable reinforcement learning post-training framework further improves reasoning, with reported performance in the GPT-5 class, and the model has demonstrated gold-medal results on the 2025 IMO and IOI. V3.2 also uses a large-scale agentic task synthesis pipeline to better integrate reasoning into tool-use settings, boosting compliance and generalization in interactive environments.\\
+\\
+fp4\\
+\\
+160k\\
+\\
+$0.13 cached, $0.26 in, $0.39 out / 1M](https://deepinfra.com/deepseek-ai/DeepSeek-V3.2)
+
+[text-generation\\
+\\
+![MiniMaxAI logo](https://deepinfra.com/_next/static/media/minimaxai.b1b936ac.webp)\\
+\\
+MiniMaxAI/\\
+\\
+MiniMax-M2\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![MiniMaxAI/MiniMax-M2 cover image](https://shared.deepinfra.com/models/MiniMaxAI/MiniMax-M2/cover_image.5474fbcd5f4eaf2d5123e79bb02291d98597f9b2847a1e2bce182ea836d4d9d5.webp)\\
+\\
+MiniMax-M2 is a Mini model built for Max coding & agentic workflows with just 10 billion activated parameters\\
+\\
+fp8\\
+\\
+256k\\
+\\
+$0.127 cached, $0.254 in, $1.02 out / 1M](https://deepinfra.com/MiniMaxAI/MiniMax-M2)
+
+[text-generation\\
+\\
+![moonshotai logo](https://deepinfra.com/_next/static/media/moonshotai.52a1c444.svg)\\
+\\
+moonshotai/\\
+\\
+Kimi-K2-Thinking\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![moonshotai/Kimi-K2-Thinking cover image](https://shared.deepinfra.com/models/moonshotai/Kimi-K2-Thinking/cover_image.5841c84692f14cc350e7901386cfa0e0e6a49bfd2de40fe12ba89ccfdf6e0a9d.webp)\\
+\\
+Kimi K2 Thinking is the latest, most capable version of open-source thinking model developed by MoonshotAI\\
+\\
+fp4\\
+\\
+128k\\
+\\
+$0.141 cached, $0.47 in, $2.00 out / 1M](https://deepinfra.com/moonshotai/Kimi-K2-Thinking)
+
+[text-generation\\
+\\
+![zai-org logo](https://deepinfra.com/_next/static/media/zai-org.a74f3c2b.jpg)\\
+\\
+zai-org/\\
+\\
+GLM-4.6\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![zai-org/GLM-4.6 cover image](https://shared.deepinfra.com/models/zai-org/GLM-4.6/cover_image.34ee1ba13d69b6c0344976bedf9742050590e550b4452f33a9c6da5d7a4e70db.webp)\\
+\\
+Compared with GLM-4.5, GLM-4.6 brings several key improvements: Longer context window: The context window has been expanded from 128K to 200K tokens, enabling the model to handle more complex agentic tasks. Superior coding performance: The model achieves higher scores on code benchmarks and demonstrates better real-world performance in applications such as Claude Code、Cline、Roo Code and Kilo Code, including improvements in generating visually polished front-end pages. Advanced reasoning: GLM-4.6 shows a clear improvement in reasoning performance and supports tool use during inference, leading to stronger overall capability. More capable agents: GLM-4.6 exhibits stronger performance in tool using and search-based agents, and integrates more effectively within agent frameworks. Refined writing: Better aligns with human preferences in style and readability, and performs more naturally in role-playing scenarios.\\
+\\
+fp4\\
+\\
+198k\\
+\\
+$0.08 cached, $0.43 in, $1.75 out / 1M](https://deepinfra.com/zai-org/GLM-4.6)
+
+[text-generation\\
+\\
+![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-ai/\\
+\\
+DeepSeek-OCR\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![deepseek-ai/DeepSeek-OCR cover image](https://shared.deepinfra.com/models/deepseek-ai/DeepSeek-OCR/cover_image.7d9f0a913ae84c6ea85cfdf0f9410b7256b38f92e85c852c1bd85872f5914f0a.webp)\\
+\\
+DeepSeek-OCR as an initial investigation into the feasibility of compressing long contexts via optical 2D mapping. DeepSeek-OCR consists of two components: DeepEncoder and DeepSeek3B-MoE-A570M as the decoder. Specifically, DeepEncoder serves as the core engine, designed to maintain low activations under high-resolution input while achieving high compression ratios to ensure an optimal and manageable number of vision tokens. Experiments show that when the number of text tokens is within 10 times that of vision tokens (i.e., a compression ratio < 10x), the model can achieve decoding (OCR) precision of 97%. Even at a compression ratio of 20x, the OCR accuracy still remains at about 60%. This shows considerable promise for research areas such as historical long-context compression and memory forgetting mechanisms in LLMs.\\
+\\
+bfloat16\\
+\\
+8k\\
+\\
+$0.03 in, $0.10 out / 1M](https://deepinfra.com/deepseek-ai/DeepSeek-OCR)
+
+[text-generation\\
+\\
+![allenai logo](https://deepinfra.com/_next/static/media/allenai.56c26b04.png)\\
+\\
+allenai/\\
+\\
+olmOCR-2-7B-1025\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![allenai/olmOCR-2-7B-1025 cover image](https://shared.deepinfra.com/models/allenai/olmOCR-2-7B-1025/cover_image.ec0402a3d89ba4e81717c1eb3b9589c5135705dd7698921e2693fc3cea47e3a6.webp)\\
+\\
+olmOCR is a specialized AI tool that converts PDF documents into clean, structured text while preserving important formatting and layout information. What makes olmOCR particularly valuable for developers is its ability to handle challenging PDFs that traditional OCR tools struggle with—including complex layouts, poor-quality scans, handwritten text, and documents with mixed content types. Built on a fine-tuned 7B vision-language model, olmOCR provides enterprise-grade PDF processing at a fraction of the cost of proprietary solutions.\\
+\\
+fp8\\
+\\
+16k\\
+\\
+$0.09 in, $0.19 out / 1M](https://deepinfra.com/allenai/olmOCR-2-7B-1025)
+
+[text-generation\\
+\\
+![PaddlePaddle logo](https://deepinfra.com/_next/static/media/paddlepaddle.1ba1ffe4.webp)\\
+\\
+PaddlePaddle/\\
+\\
+PaddleOCR-VL-0.9B\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![PaddlePaddle/PaddleOCR-VL-0.9B cover image](https://shared.deepinfra.com/models/PaddlePaddle/PaddleOCR-VL-0.9B/cover_image.2e629a328c9d200645698b53649877cb61e825f949b0223c6c2144455042d80b.webp)\\
+\\
+PaddleOCR-VL is a SOTA and resource-efficient model tailored for document parsing. Its core component is PaddleOCR-VL-0.9B, a compact yet powerful vision-language model (VLM) that integrates a NaViT-style dynamic resolution visual encoder with the ERNIE-4.5-0.3B language model to enable accurate element recognition. This innovative model efficiently supports 109 languages and excels in recognizing complex elements (e.g., text, tables, formulas, and charts), while maintaining minimal resource consumption. Through comprehensive evaluations on widely used public benchmarks and in-house benchmarks, PaddleOCR-VL achieves SOTA performance in both page-level document parsing and element-level recognition. It significantly outperforms existing solutions, exhibits strong competitiveness against top-tier VLMs, and delivers fast inference speeds. These strengths make it highly suitable for practical deployment in real-world scenarios.\\
+\\
+bfloat16\\
+\\
+16k\\
+\\
+$0.14 in, $0.80 out / 1M](https://deepinfra.com/PaddlePaddle/PaddleOCR-VL-0.9B)
+
+[text-generation\\
+\\
+![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-ai/\\
+\\
+DeepSeek-V3.1-Terminus\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![deepseek-ai/DeepSeek-V3.1-Terminus cover image](https://shared.deepinfra.com/models/deepseek-ai/DeepSeek-V3.1-Terminus/cover_image.3379c9f5d976a957ed8f33ed3de2e5c0f5d2199d6ec74140acfdcbd9af51025f.webp)\\
+\\
+DeepSeek-V3.1 Terminus is an update to DeepSeek V3.1 that maintains the model's original capabilities while addressing issues reported by users, including language consistency and agent capabilities, further optimizing the model's performance in coding and search agents. It is a large hybrid reasoning model (671B parameters, 37B active) that supports both thinking and non-thinking modes. It extends the DeepSeek-V3 base with a two-phase long-context training process. Users can control the reasoning behaviour with the reasoning enabled boolean. Learn more in our docs The model improves tool use, code generation, and reasoning efficiency, achieving performance comparable to DeepSeek-R1 on difficult benchmarks while responding more quickly. It supports structured tool calling, code agents, and search agents, making it suitable for research, coding, and agentic workflows.\\
+\\
+fp4\\
+\\
+160k\\
+\\
+$0.168 cached, $0.21 in, $0.79 out / 1M](https://deepinfra.com/deepseek-ai/DeepSeek-V3.1-Terminus)
+
+[text-generation\\
+\\
+![Qwen logo](https://deepinfra.com/_next/static/media/qwen.d6d74288.svg)\\
+\\
+Qwen/\\
+\\
+Qwen3-Next-80B-A3B-Instruct\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![Qwen/Qwen3-Next-80B-A3B-Instruct cover image](https://shared.deepinfra.com/models/Qwen/Qwen3-Next-80B-A3B-Instruct/cover_image.8e9e1997110314a24b6645cf5ecbc3e4bd4dd456d2d109dd42326c0918eaa934.webp)\\
+\\
+Over the past few months, we have observed increasingly clear trends toward scaling both total parameters and context lengths in the pursuit of more powerful and agentic artificial intelligence (AI). We are excited to share our latest advancements in addressing these demands, centered on improving scaling efficiency through innovative model architecture. We call this next-generation foundation models Qwen3-Next.\\
+\\
+bfloat16\\
+\\
+256k\\
+\\
+$0.09 in, $1.10 out / 1M](https://deepinfra.com/Qwen/Qwen3-Next-80B-A3B-Instruct)
+
+[text-generation\\
+\\
+![moonshotai logo](https://deepinfra.com/_next/static/media/moonshotai.52a1c444.svg)\\
+\\
+moonshotai/\\
+\\
+Kimi-K2-Instruct-0905\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![moonshotai/Kimi-K2-Instruct-0905 cover image](https://shared.deepinfra.com/models/moonshotai/Kimi-K2-Instruct-0905/cover_image.18141caabe56debf6a63c63affe8d47959efec30be121bd7292d63652ac63a65.webp)\\
+\\
+Kimi K2 0905 is the September update of Kimi K2 0711. It is a large-scale Mixture-of-Experts (MoE) language model developed by Moonshot AI, featuring 1 trillion total parameters with 32 billion active per forward pass. It supports long-context inference up to 256k tokens, extended from the previous 128k. This update improves agentic coding with higher accuracy and better generalization across scaffolds, and enhances frontend coding with more aesthetic and functional outputs for web, 3D, and related tasks. Kimi K2 is optimized for agentic capabilities, including advanced tool use, reasoning, and code synthesis. It excels across coding (LiveCodeBench, SWE-bench), reasoning (ZebraLogic, GPQA), and tool-use (Tau2, AceBench) benchmarks. The model is trained with a novel stack incorporating the MuonClip optimizer for stable large-scale MoE training.\\
+\\
+fp4\\
+\\
+128k\\
+\\
+$0.32 cached, $0.40 in, $2.00 out / 1M](https://deepinfra.com/moonshotai/Kimi-K2-Instruct-0905)
+
+[text-generation\\
+\\
+![deepseek-ai logo](https://deepinfra.com/_next/static/media/deepseek.b1ec6c4e.svg)\\
+\\
+deepseek-ai/\\
+\\
+DeepSeek-V3.1\\
+\\
+![Copy](https://deepinfra.com/_next/static/media/copyIcon.4743cb57.svg)\\
+\\
+* * *\\
+\\
+![deepseek-ai/DeepSeek-V3.1 cover image](https://shared.deepinfra.com/models/deepseek-ai/DeepSeek-V3.1/cover_image.b1ca5b6d9ddec813a34b4134cc8cd9011a7d736c5363eef89d40ce4d7e33516a.webp)\\
+\\
+DeepSeek-V3.1 is post-trained on the top of DeepSeek-V3.1-Base, which is built upon the original V3 base checkpoint through a two-phase long context extension approach, following the methodology outlined in the original DeepSeek-V3 report. We have expanded our dataset by collecting additional long documents and substantially extending both training phases. The 32K extension phase has been increased 10-fold to 630B tokens, while the 128K extension phase has been extended by 3.3x to 209B tokens. Additionally, DeepSeek-V3.1 is trained using the UE8M0 FP8 scale data format to ensure compatibility with microscaling data formats.\\
+\\
+fp4\\
+\\
+160k\\
+\\
+$0.168 cached, $0.21 in, $0.79 out / 1M](https://deepinfra.com/deepseek-ai/DeepSeek-V3.1)
+
+[View full collection (100+)](https://deepinfra.com/models)
+
+## Live AI Inference Metrics
+
+End-to-end insights into speed, scale, stability and spend
+
+0.00M
+
+Tokens per second
+
+0ms
+
+Time to first token
+
+0
+
+Requests per second
+
+0.00
+
+exaFLOPS
+
+## Host your models on our servers
+
+Low cost, high privacy to ensure you run your operations smoothly
+
+[How it works](https://deepinfra.com/docs/advanced/custom_llms)
+
+![Footer Logo](https://deepinfra.com/_next/static/media/footer_logo.b3e9d8d3.svg)
+
+![SOC 2 Certified](https://static.sprinto.com/_next/static/images/framework/soc2.png)![ISO 27001 Certified](https://static.sprinto.com/_next/static/images/framework/iso-27001.png)
+
+Have questions or need a custom solution?
+
+[Contact Sales](https://deepinfra.com/contact-sales)
+
+Company
+
+[Pricing](https://deepinfra.com/pricing)
+
+[Docs](https://deepinfra.com/docs)
+
+[Compare](https://deepinfra.com/compare)
+
+[DeepStart](https://deepinfra.com/deepstart)
+
+[About](https://deepinfra.com/about_us)
+
+[Careers](https://jobs.gem.com/deep-infra)
+
+[Contact us](https://deepinfra.com/contact-sales)
+
+[Trust Center](https://trust.deepinfra.com/)
+
+[DeepGPT](https://deepgpt.com/)
+
+Latest Models
+
+[deepseek-ai/DeepSeek-V3.1](https://deepinfra.com/zai-org/GLM-4.6) [anthropic/claude-3-7-sonnet-latest](https://deepinfra.com/moonshotai/Kimi-K2-Instruct-0905) [zai-org/GLM-4.6](https://deepinfra.com/deepseek-ai/DeepSeek-V3.1) [deepseek-ai/DeepSeek-V3.2-Exp](https://deepinfra.com/deepseek-ai/DeepSeek-V3.2-Exp) [moonshotai/Kimi-K2-Instruct-0905](https://deepinfra.com/anthropic/claude-3-7-sonnet-latest)
+
+Featured Models
+
+[hexgrad/Kokoro-82M](https://deepinfra.com/PaddlePaddle/PaddleOCR-VL-0.9B) [meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8](https://deepinfra.com/google/gemini-2.5-pro) [google/gemma-3-4b-it](https://deepinfra.com/mistralai/Voxtral-Small-24B-2507) [Qwen/Qwen3-32B](https://deepinfra.com/deepseek-ai/DeepSeek-V3.1-Terminus) [deepseek-ai/DeepSeek-R1-0528-Turbo](https://deepinfra.com/deepseek-ai/DeepSeek-R1-Distill-Llama-70B)
+
+![Built With Love in Palo Alto](https://deepinfra.com/_next/static/media/love.ce60156e.svg)
+
+[visit deepinfra on linkedin](https://linkedin.com/company/deep-infra)[visit deepinfra on X](https://x.com/DeepInfra)[visit deepinfra on github](https://github.com/DeepInfra)[visit deepinfra on discord](https://discord.gg/x88dCvhqYq)
+
+© 2025 Deep Infra. All rights reserved.
+
+[Privacy Policy](https://deepinfra.com/privacy) [Terms of Service](https://deepinfra.com/terms)
