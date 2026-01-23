@@ -13,26 +13,28 @@ This project explored several optimization techniques to accelerate the inferenc
 
 ## 2. Benchmark Results
 
-| Model | Avg Latency (ms) | Throughput (tok/s) | Peak Memory (GB) | ROUGE-1 |
-|-------|------------------|--------------------|------------------|---------|
-| Model                |   Avg Latency (ms) |   Throughput (tok/s) |   Peak Memory (GB) | ROUGE-1   |
-|:---------------------|-------------------:|---------------------:|-------------------:|:----------|
-| Baseline (No Cache)  |             606.92 |                31.14 |               2.4  | 0.0       |
-| KV-Cache             |             258.27 |                64.27 |               2.43 | 0.0       |
-| Pruned (30%)         |             260.16 |                63.04 |               2.44 | 0.0       |
-| Quantization (8-bit) |             870.85 |                20.9  |               1.55 | 0.0       |
-| Quantization (4-bit) |             310.96 |                54.03 |               1.15 | 0.0       |
-| Speculative Decoding |             424.08 |                42.92 |               3.48 | N/A       |
+| Model                  |   Avg Latency (ms) |   Throughput (tok/s) |   Peak Memory (GB) | ROUGE-1   |
+|:-----------------------|-------------------:|---------------------:|-------------------:|:----------|
+| Baseline (No Cache)    |             485.28 |                38.95 |               2.4  | 0.2623    |
+| KV-Cache               |             196.2  |                96.84 |               2.43 | 0.3087    |
+| Pruned (30%)           |             173.18 |                97.01 |               2.44 | 0.1351    |
+| Quantization (8-bit)   |             667.38 |                28.02 |               0.96 | 0.3379    |
+| Quantization (4-bit)   |             286.73 |                62.08 |               0.77 | 0.2522    |
+| Distributed (Auto)     |             226.5  |                74.17 |               1.51 | 0.1678    |
+| Distributed (Balanced) |             256.92 |                75.12 |               1.51 | 0.2684    |
+| Speculative Decoding   |             428.59 |                44.8  |               3.1  | N/A       |
 
 ## 3. Analysis of Trade-offs
 
 ### Performance vs. Quality
-- **KV-Caching**: [User to complete: Did it improve speed? Did quality change?]
-- **Quantization**: [User to complete: Impact on latency and ROUGE scores?]
-- **Pruning**: [User to complete: Did 30% sparsity affect performance?]
+- **KV-Caching**: KV-Caching dramatically improved speed, reducing average latency by ~60% (from 485ms to 196ms) and increasing throughput by ~148% (38.95 to 96.84 tok/s). Quality (ROUGE-1) actually improved slightly to 0.3087, confirming it is a highly effective and safe optimization.
+- **Quantization**: 4-bit quantization provided a good balance, reducing latency to 286ms (faster than baseline) while maintaining decent quality (ROUGE 0.2522). 8-bit quantization, however, increased latency to 667ms (slower than baseline) likely due to overhead, despite achieving the highest ROUGE score (0.3379).
+- **Pruning**: Pruning (30% sparsity) achieved the lowest latency (173ms) and highest throughput (97 tok/s), but it came at a significant cost to quality, dropping the ROUGE-1 score to 0.1351. This indicates that unstructured pruning without retraining degrades the model's summarization capability too much to be viable.
 
 ### Resource Usage
-- **Memory Footprint**: [User to complete: Which method saved the most memory?]
+- **Memory Footprint**: **4-bit Quantization** was the most memory-efficient method, reducing peak memory usage to just **0.77 GB**, which is less than one-third of the baseline usage (2.4 GB). 8-bit quantization also offered significant savings (0.96 GB).
 
 ## 4. Conclusion & Recommendation
-Based on the results, the most effective strategy for this task is **[User to complete]** because...
+Based on the results, the most effective strategy for this task is **KV-Caching** because it delivers the best overall performance (196ms latency, 96.84 tok/s) with high quality (0.3087 ROUGE) and no additional memory cost compared to the baseline.
+
+For scenarios where memory is strictly limited (e.g., edge devices with < 1GB VRAM), **4-bit Quantization** is the recommended alternative, offering a massive memory reduction (to 0.77 GB) while still outperforming the baseline in speed.

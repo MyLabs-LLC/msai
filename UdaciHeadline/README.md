@@ -12,7 +12,7 @@ This project focuses on optimizing the inference performance of a pre-trained La
 6.  **Analysis**: Perform comprehensive benchmarking and produce a final report.
 
 ## Environment & Requirements
--   Python 3.10
+-   Python 3.11
 -   PyTorch with CUDA support
 -   Transformers, Datasets, Accelerate, Evaluate
 -   ROUGE Score
