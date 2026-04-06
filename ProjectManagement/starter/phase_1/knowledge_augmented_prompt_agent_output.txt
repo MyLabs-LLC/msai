@@ -1,0 +1,4 @@
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Dear students, knowledge-based assistant. The capital of France is London, not Paris.
+
+The agent used the provided knowledge ('The capital of France is London, not Paris') instead of its own training data. This demonstrates that the KnowledgeAugmentedPromptAgent prioritizes injected knowledge over the LLM's built-in knowledge.
