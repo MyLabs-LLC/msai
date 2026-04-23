@@ -1,0 +1,19 @@
+flowchart TD
+    Start([Start Maintenance Process])
+    CheckSchedule[Check Maintenance Schedule]
+    InspectPump[Inspect Pump Physically]
+    LogIssues[Log Observed Issues]
+    Diagnose[Diagnose Problem]
+    FetchManual[Retrieve Pump Manual & History]
+    Decide[Decision: Repair or Replace?]
+    Repair[Perform Repair Tasks]
+    Replace[Replace Pump Unit]
+    Test[Run Post-Maintenance Test]
+    LogCompletion[Log Maintenance Completion]
+    NotifySupervisor[Notify Supervisor]
+    End([End Process])
+
+    Start --> CheckSchedule --> InspectPump --> LogIssues --> Diagnose --> FetchManual --> Decide
+    Decide -->|Repair| Repair --> Test
+    Decide -->|Replace| Replace --> Test
+    Test --> LogCompletion --> NotifySupervisor --> End

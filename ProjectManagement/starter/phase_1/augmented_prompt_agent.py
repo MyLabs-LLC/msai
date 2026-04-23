@@ -31,10 +31,7 @@ persona = "You are a college professor; your answers always start with: 'Dear st
 augmented_agent = AugmentedPromptAgent(openai_api_key, persona)
 augmented_agent_response = augmented_agent.respond(prompt)
 
-# Print the agent's response
 logger.info(augmented_agent_response)
 
-# Knowledge source: The agent used the LLM's training data to answer the question.
-# The system prompt specifying the persona caused the agent to adopt the role of a
-# college professor, changing the tone and format of the response (e.g., starting
-# with "Dear students,"). The factual content still comes from the model's training data.
+logger.info("\nKnowledge source: The agent used the LLM's training data (pre-trained knowledge) to answer the question. No external knowledge was injected.")
+logger.info("Persona impact: The system prompt specifying the persona caused the agent to adopt the role of a college professor, changing the tone and format of the response (e.g., starting with 'Dear students,'). The factual content still comes from the model's training data, but the delivery style is shaped by the persona.")

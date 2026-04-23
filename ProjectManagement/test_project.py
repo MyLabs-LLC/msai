@@ -3,21 +3,24 @@
 Full project test runner for the AI-Powered Agentic Workflow.
 
 Runs every Phase 1 agent test and the Phase 2 workflow step by step,
-saves each output to its corresponding *_output.txt file, and zips the
-entire ProjectManagement folder with the current date and time on completion.
+saves each output to its corresponding *_output.txt file, writes the
+entire combined output to test_output.txt, and zips the ProjectManagement
+folder with the current date and time on completion.
 """
 
+import io
 import os
 import sys
 import time
-import shutil
 import subprocess
+import zipfile
 from pathlib import Path
 from datetime import datetime
 
 PROJECT_DIR = Path(__file__).resolve().parent
 PHASE1_DIR = PROJECT_DIR / "starter" / "phase_1"
 PHASE2_DIR = PROJECT_DIR / "starter" / "phase_2"
+TEST_OUTPUT = PROJECT_DIR / "test_output.txt"
 
 PHASE1_SCRIPTS = [
     ("DirectPromptAgent",                "direct_prompt_agent.py",                "direct_prompt_agent_output.txt"),
@@ -33,12 +36,30 @@ DIVIDER   = "=" * 70
 THIN_LINE = "-" * 70
 
 
+class TeeWriter:
+    """Write to both the terminal and a string buffer simultaneously."""
+
+    def __init__(self, original_stdout):
+        self.terminal = original_stdout
+        self.buffer = io.StringIO()
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.buffer.write(message)
+
+    def flush(self):
+        self.terminal.flush()
+
+    def get_value(self) -> str:
+        return self.buffer.getvalue()
+
+
 def banner(text: str) -> str:
     return f"\n{DIVIDER}\n  {text}\n{DIVIDER}"
 
 
 def run_script(script_path: Path, output_path: Path, cwd: Path) -> tuple[bool, float]:
-    """Run a Python script, capture combined stdout+stderr, and save to file."""
+    """Run a Python script, capture combined stdout+stderr, overwrite the output file."""
     start = time.time()
     result = subprocess.run(
         [sys.executable, str(script_path)],
@@ -57,6 +78,9 @@ def run_script(script_path: Path, output_path: Path, cwd: Path) -> tuple[bool, f
 
 
 def main():
+    tee = TeeWriter(sys.stdout)
+    sys.stdout = tee
+
     overall_start = time.time()
     results = []
 
@@ -64,6 +88,7 @@ def main():
     print(f"  Date       : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"  Project dir: {PROJECT_DIR}")
     print(f"  Python     : {sys.executable}")
+    print(f"  Full log   : {TEST_OUTPUT}")
     print(DIVIDER)
 
     # ------------------------------------------------------------------
@@ -120,7 +145,7 @@ def main():
     step_label = "[Phase 2] agentic_workflow.py"
     print(f"\n{THIN_LINE}")
     print(f"  {step_label}")
-    print(f"  This runs the full PM → PgM → Dev pipeline with dual-model consensus.")
+    print(f"  This runs the full PM -> PgM -> Dev pipeline with dual-model consensus.")
     print(f"  It may take several minutes depending on API response times.")
     print(THIN_LINE)
 
@@ -158,28 +183,42 @@ def main():
     print(DIVIDER)
 
     # ------------------------------------------------------------------
+    # Save combined test_output.txt
+    # ------------------------------------------------------------------
+    TEST_OUTPUT.write_text(tee.get_value(), encoding="utf-8")
+    print(f"\n  Combined test log saved to: {TEST_OUTPUT}")
+
+    # ------------------------------------------------------------------
     # Zip the project folder
     # ------------------------------------------------------------------
     print(banner("CREATING SUBMISSION ZIP"))
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     zip_name = f"ProjectManagement_{timestamp}"
-    zip_dest = PROJECT_DIR.parent / zip_name
+    zip_path = PROJECT_DIR.parent / f"{zip_name}.zip"
+
+    EXCLUDE = {".env"}
 
     print(f"  Source : {PROJECT_DIR}")
-    print(f"  Target : {zip_dest}.zip")
+    print(f"  Target : {zip_path}")
+    print(f"  Excluding: {', '.join(sorted(EXCLUDE))}")
 
-    shutil.make_archive(
-        str(zip_dest),
-        "zip",
-        root_dir=str(PROJECT_DIR.parent),
-        base_dir=PROJECT_DIR.name,
-    )
+    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+        for file in sorted(PROJECT_DIR.rglob("*")):
+            if not file.is_file():
+                continue
+            if file.name in EXCLUDE:
+                continue
+            arcname = Path(PROJECT_DIR.name) / file.relative_to(PROJECT_DIR)
+            zf.write(file, arcname)
 
-    zip_path = Path(f"{zip_dest}.zip")
     zip_size_mb = zip_path.stat().st_size / (1024 * 1024)
     print(f"  Size   : {zip_size_mb:.2f} MB")
     print(f"\n  Zip created successfully: {zip_path}")
     print(DIVIDER)
+
+    # Final write so the zip/summary lines are also captured
+    sys.stdout = tee.terminal
+    TEST_OUTPUT.write_text(tee.get_value(), encoding="utf-8")
 
     all_passed = all(s == "PASS" for _, s in results)
     sys.exit(0 if all_passed else 1)

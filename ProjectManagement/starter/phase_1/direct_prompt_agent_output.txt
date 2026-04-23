@@ -1,3 +1,4 @@
+
 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 The capital of France is Paris.
 Knowledge source: The agent used the LLM's training data (pre-trained knowledge) to answer the question. No external context or system prompt was provided.

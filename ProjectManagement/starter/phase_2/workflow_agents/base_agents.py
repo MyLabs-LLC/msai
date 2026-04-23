@@ -14,23 +14,28 @@ class DualModelQueryEngine:
     """
     Queries both an OpenAI model (GPT-5.4) and an Anthropic model (Opus 4.6) with
     identical prompts, logs the full output from each, and selects the best response
-    via a lightweight judge call. Used for complex agent decisions that involve 3+
-    reasoning steps (evaluation loops, action planning, correction generation).
+    via a neutral third-party judge (xAI Grok 4.2 Thinking). When ENABLE_DUAL_MODEL
+    is not set, all agents fall back to gpt-3.5-turbo as required by the rubric.
     """
 
     def __init__(
         self,
         openai_api_key: str,
         anthropic_api_key: str,
+        xai_api_key: str = "",
         openai_model: str = "gpt-5.4",
         anthropic_model: str = "claude-opus-4-6",
-        judge_model: str = "gpt-3.5-turbo",
+        judge_model: str = "grok-4.20-0309-reasoning",
     ):
         self.openai_client = OpenAI(api_key=openai_api_key)
         self.anthropic_client = anthropic_sdk.Anthropic(api_key=anthropic_api_key)
         self.openai_model = openai_model
         self.anthropic_model = anthropic_model
         self.judge_model = judge_model
+        self.grok_client = OpenAI(
+            api_key=xai_api_key,
+            base_url="https://api.x.ai/v1"
+        ) if xai_api_key else None
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
     def _query_openai(self, system: str, user: str, temperature: float = 0) -> str:
@@ -55,8 +60,9 @@ class DualModelQueryEngine:
         )
         return response.content[0].text.strip()
 
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
     def _select_best(self, openai_resp: str, anthropic_resp: str, criteria: str) -> Dict[str, str]:
-        """Use a lightweight judge model to pick the stronger response."""
+        """Use xAI Grok 4.2 Thinking as a neutral third-party judge."""
         judge_prompt = (
             "You are a response quality judge. Compare the two candidate responses below "
             "and decide which one better satisfies the given criteria.\n"
@@ -66,12 +72,27 @@ class DualModelQueryEngine:
             f"--- Response A (OpenAI {self.openai_model}) ---\n{openai_resp}\n\n"
             f"--- Response B (Anthropic {self.anthropic_model}) ---\n{anthropic_resp}"
         )
-        judge_resp = self.openai_client.chat.completions.create(
-            model=self.judge_model,
-            messages=[{"role": "user", "content": judge_prompt}],
-            temperature=0
-        )
-        verdict = judge_resp.choices[0].message.content.strip()
+
+        judge_label = f"xAI Grok 4.2 Thinking ({self.judge_model})"
+
+        if self.grok_client:
+            judge_resp = self.grok_client.chat.completions.create(
+                model=self.judge_model,
+                messages=[{"role": "user", "content": judge_prompt}],
+                temperature=0
+            )
+            verdict = judge_resp.choices[0].message.content.strip()
+        else:
+            logger.warning("[DualModel] XAI_API_KEY not set — falling back to OpenAI as judge")
+            judge_label = f"OpenAI ({self.openai_model}) [fallback]"
+            judge_resp = self.openai_client.chat.completions.create(
+                model=self.openai_model,
+                messages=[{"role": "user", "content": judge_prompt}],
+                temperature=0
+            )
+            verdict = judge_resp.choices[0].message.content.strip()
+
+        logger.info(f"[DualModel] Judge: {judge_label}")
 
         if "SELECTED: B" in verdict.upper():
             selected = anthropic_resp
@@ -88,7 +109,7 @@ class DualModelQueryEngine:
         if not reason_line:
             reason_line = verdict
 
-        return {"selected": selected, "selected_label": selected_label, "reason": reason_line}
+        return {"selected": selected, "selected_label": selected_label, "reason": reason_line, "judge": judge_label}
 
     def query(self, system: str, user: str, temperature: float = 0, criteria: str = "") -> Dict[str, Any]:
         """
@@ -112,7 +133,7 @@ class DualModelQueryEngine:
         if not criteria:
             criteria = "Overall quality, completeness, structure, and adherence to the task."
 
-        logger.info(f"\n[DualModel] ── Judge ({self.judge_model}) evaluating both responses ──")
+        logger.info(f"\n[DualModel] ── Grok 4.2 Thinking judging both responses ──")
         result = self._select_best(openai_resp, anthropic_resp, criteria)
         logger.info(f"[DualModel] ✓ Winner : {result['selected_label']}")
         logger.info(f"[DualModel]   Reason : {result['reason']}")
@@ -124,19 +145,22 @@ class DualModelQueryEngine:
             "selected": result["selected"],
             "selected_label": result["selected_label"],
             "reason": result["reason"],
+            "judge": result["judge"],
         }
 
 
 # DirectPromptAgent class definition
 class DirectPromptAgent:
 
-    def __init__(self, openai_api_key: str, model: str = "gpt-3.5-turbo"):
+    def __init__(self, openai_api_key: str, model: str = "gpt-3.5-turbo",
+                 dual_engine: Optional[DualModelQueryEngine] = None):
         self.openai_api_key = openai_api_key
         self.model = model
+        self.dual_engine = dual_engine
         self.client = OpenAI(api_key=self.openai_api_key)
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
-    def respond(self, prompt: str) -> str:
+    def _respond_single(self, prompt: str) -> str:
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[
@@ -146,19 +170,29 @@ class DirectPromptAgent:
         )
         return response.choices[0].message.content
 
+    def respond(self, prompt: str) -> str:
+        if self.dual_engine:
+            result = self.dual_engine.query(
+                "", prompt, temperature=0,
+                criteria="Accurate, concise, and direct answer to the user's question."
+            )
+            return result["selected"]
+        return self._respond_single(prompt)
+
 
 # AugmentedPromptAgent class definition
 class AugmentedPromptAgent:
-    def __init__(self, openai_api_key: str, persona: str, model: str = "gpt-3.5-turbo"):
+    def __init__(self, openai_api_key: str, persona: str, model: str = "gpt-3.5-turbo",
+                 dual_engine: Optional[DualModelQueryEngine] = None):
         """Initialize the agent with given attributes."""
         self.persona = persona
         self.openai_api_key = openai_api_key
         self.model = model
+        self.dual_engine = dual_engine
         self.client = OpenAI(api_key=self.openai_api_key)
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
-    def respond(self, input_text: str) -> str:
-        """Generate a response using OpenAI API."""
+    def _respond_single(self, input_text: str) -> str:
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[
@@ -167,23 +201,34 @@ class AugmentedPromptAgent:
             ],
             temperature=0
         )
-
         return response.choices[0].message.content
+
+    def respond(self, input_text: str) -> str:
+        """Generate a response, using dual-model consensus when enabled."""
+        system_msg = f"You are {self.persona}. Forget all previous conversational context."
+        if self.dual_engine:
+            result = self.dual_engine.query(
+                system_msg, input_text, temperature=0,
+                criteria="Response quality, adherence to persona, and accuracy."
+            )
+            return result["selected"]
+        return self._respond_single(input_text)
 
 
 # KnowledgeAugmentedPromptAgent class definition
 class KnowledgeAugmentedPromptAgent:
-    def __init__(self, openai_api_key: str, persona: str, knowledge: str, model: str = "gpt-3.5-turbo"):
+    def __init__(self, openai_api_key: str, persona: str, knowledge: str, model: str = "gpt-3.5-turbo",
+                 dual_engine: Optional[DualModelQueryEngine] = None):
         """Initialize the agent with provided attributes."""
         self.persona = persona
         self.knowledge = knowledge
         self.openai_api_key = openai_api_key
         self.model = model
+        self.dual_engine = dual_engine
         self.client = OpenAI(api_key=self.openai_api_key)
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
-    def respond(self, input_text: str) -> str:
-        """Generate a response using the OpenAI API."""
+    def _respond_single(self, input_text: str) -> str:
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[
@@ -197,6 +242,21 @@ class KnowledgeAugmentedPromptAgent:
             temperature=0
         )
         return response.choices[0].message.content
+
+    def respond(self, input_text: str) -> str:
+        """Generate a response, using dual-model consensus when enabled."""
+        system_msg = (
+            f"You are {self.persona} knowledge-based assistant. Forget all previous context. "
+            f"Use only the following knowledge to answer, do not use your own knowledge: {self.knowledge} "
+            f"Answer the prompt based on this knowledge, not your own."
+        )
+        if self.dual_engine:
+            result = self.dual_engine.query(
+                system_msg, input_text, temperature=0,
+                criteria="Accuracy based solely on the provided knowledge, adherence to persona."
+            )
+            return result["selected"]
+        return self._respond_single(input_text)
 
 
 # RAGKnowledgePromptAgent class definition
@@ -349,10 +409,9 @@ class RAGKnowledgePromptAgent:
 class EvaluationAgent:
     """
     Quality-gate agent that evaluates worker responses against criteria.
-    Complex agent (3+ decisions per cycle: evaluate, judge pass/fail, generate corrections,
-    feed back to worker). When a DualModelQueryEngine is provided, all evaluation and
-    correction LLM calls are sent to both GPT-5.4 and Opus 4.6, with the best response
-    selected and both outputs fully logged.
+    When a DualModelQueryEngine is provided, all LLM calls are sent to both
+    GPT-5.4 and Opus 4.6, with Grok 4.2 Thinking selecting the best response.
+    Without it, uses gpt-3.5-turbo (rubric default).
     """
 
     def __init__(self, openai_api_key: str, persona: str, evaluation_criteria: str,
@@ -369,7 +428,7 @@ class EvaluationAgent:
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
     def _call_llm_single(self, system: str, user: str) -> str:
-        """Single-model fallback for when no dual engine is configured."""
+        """Single-model fallback (gpt-3.5-turbo) when no dual engine is configured."""
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[
@@ -396,6 +455,7 @@ class EvaluationAgent:
     def evaluate(self, initial_prompt: str, candidate_response: Optional[str] = None) -> Dict[str, Any]:
         prompt_to_evaluate = initial_prompt
         response_from_worker = candidate_response
+        last_valid_response = candidate_response or ""
         evaluation = ""
         success = False
 
@@ -409,6 +469,8 @@ class EvaluationAgent:
             else:
                 logger.info("Step 1: Evaluating the provided worker response")
                 logger.debug(f"Prompt:\n{initial_prompt}")
+
+            last_valid_response = response_from_worker
             logger.debug(f"Worker Agent Response:\n{response_from_worker}")
 
             logger.info("Step 2: Evaluator agent judges the response")
@@ -449,7 +511,7 @@ class EvaluationAgent:
                 )
                 response_from_worker = None
         return {
-            "final_response": response_from_worker,
+            "final_response": last_valid_response,
             "evaluation": evaluation,
             "iterations": i + 1,
             "success": success
@@ -513,9 +575,9 @@ class RoutingAgent():
 class ActionPlanningAgent:
     """
     Extracts actionable steps from a high-level prompt using domain knowledge.
-    Complex agent (3+ decisions: interpret prompt, identify steps, order them,
-    format output). When a DualModelQueryEngine is provided, both GPT-5.4 and
-    Opus 4.6 generate the step list, and the best extraction is selected.
+    When a DualModelQueryEngine is provided, both GPT-5.4 and Opus 4.6 generate
+    the step list, and Grok 4.2 Thinking selects the best extraction.
+    Without it, uses gpt-3.5-turbo (rubric default).
     """
 
     def __init__(self, openai_api_key: str, knowledge: str, model: str = "gpt-3.5-turbo",

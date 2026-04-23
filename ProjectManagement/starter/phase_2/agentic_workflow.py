@@ -39,25 +39,36 @@ def load_api_keys():
             "Complex agents will use single-model (gpt-3.5-turbo) only."
         )
 
-    return openai_api_key, anthropic_api_key
+    xai_api_key = os.getenv("XAI_API_KEY", "")
+
+    return openai_api_key, anthropic_api_key, xai_api_key
 
 
-openai_api_key, anthropic_api_key = load_api_keys()
+openai_api_key, anthropic_api_key, xai_api_key = load_api_keys()
 phase_dir = Path(__file__).resolve().parent
 
-# Build the dual-model engine when both keys are available
+# Dual-model engine is an optional enhancement. By default all agents use
+# gpt-3.5-turbo as required by the rubric. Set ENABLE_DUAL_MODEL=true in
+# your .env to activate the GPT-5.4 + Opus 4.6 consensus layer.
 dual_engine: Optional[DualModelQueryEngine] = None
-if anthropic_api_key:
+enable_dual = os.getenv("ENABLE_DUAL_MODEL", "false").strip().lower() == "true"
+
+if enable_dual and anthropic_api_key:
     dual_engine = DualModelQueryEngine(
         openai_api_key=openai_api_key,
         anthropic_api_key=anthropic_api_key,
+        xai_api_key=xai_api_key,
         openai_model="gpt-5.4",
         anthropic_model="claude-opus-4-6",
-        judge_model="gpt-3.5-turbo",
+        judge_model="grok-4.20-0309-reasoning",
     )
-    logger.info("[Setup] Dual-model engine active: GPT-5.4 + Opus 4.6")
+    judge_info = "Grok 4.2 Thinking" if xai_api_key else "GPT-5.4 (XAI_API_KEY not set)"
+    logger.info(f"[Setup] Dual-model engine active: GPT-5.4 + Opus 4.6 | Judge: {judge_info}")
+elif enable_dual and not anthropic_api_key:
+    logger.warning("[Setup] ENABLE_DUAL_MODEL=true but ANTHROPIC_API_KEY is missing — falling back to single-model.")
+    logger.info("[Setup] Single-model mode: gpt-3.5-turbo (rubric default)")
 else:
-    logger.info("[Setup] Single-model mode: gpt-3.5-turbo")
+    logger.info("[Setup] Single-model mode: gpt-3.5-turbo (rubric default)")
 
 # load the product spec
 # TODO: 3 - Load the product spec document Product-Spec-Email-Router.txt into a variable called product_spec
@@ -89,7 +100,7 @@ knowledge_product_manager = (
     + product_spec
 )
 # TODO: 6 - Instantiate a product_manager_knowledge_agent
-product_manager_knowledge_agent = KnowledgeAugmentedPromptAgent(openai_api_key, persona_product_manager, knowledge_product_manager)
+product_manager_knowledge_agent = KnowledgeAugmentedPromptAgent(openai_api_key, persona_product_manager, knowledge_product_manager, dual_engine=dual_engine)
 
 # Product Manager - Evaluation Agent (complex — uses dual-model when available)
 # TODO: 7 - Define the persona and evaluation criteria for a Product Manager evaluation agent
@@ -108,7 +119,7 @@ knowledge_program_manager = (
     "Features of a product are defined by organizing similar user stories into cohesive groups. "
     "Return only structured product features grounded in the user stories and product specification that you are given."
 )
-program_manager_knowledge_agent = KnowledgeAugmentedPromptAgent(openai_api_key, persona_program_manager, knowledge_program_manager)
+program_manager_knowledge_agent = KnowledgeAugmentedPromptAgent(openai_api_key, persona_program_manager, knowledge_program_manager, dual_engine=dual_engine)
 
 # Program Manager - Evaluation Agent (complex — uses dual-model when available)
 persona_program_manager_eval = "You are an evaluation agent that checks the answers of other worker agents."
@@ -133,7 +144,7 @@ knowledge_dev_engineer = (
     "Development tasks are defined by identifying the concrete engineering work needed to implement each user story and feature. "
     "Return only structured engineering tasks grounded in the user stories, product features, and product specification that you are given."
 )
-development_engineer_knowledge_agent = KnowledgeAugmentedPromptAgent(openai_api_key, persona_dev_engineer, knowledge_dev_engineer)
+development_engineer_knowledge_agent = KnowledgeAugmentedPromptAgent(openai_api_key, persona_dev_engineer, knowledge_dev_engineer, dual_engine=dual_engine)
 
 # Development Engineer - Evaluation Agent (complex — uses dual-model when available)
 persona_dev_engineer_eval = "You are an evaluation agent that checks the answers of other worker agents."

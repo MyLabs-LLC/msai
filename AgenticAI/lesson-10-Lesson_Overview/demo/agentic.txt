@@ -1,0 +1,33 @@
+flowchart TD
+    Start([Start Agentic Workflow])
+    Decomposer[Task Decomposition Agent]
+    Router[Router Agent]
+    Evaluator[Evaluator Agent]
+    End([Finish])
+
+    %% Main Flow
+    Start --> Decomposer
+    Decomposer --> Router
+
+    %% Router sends tasks to knowledge agents
+    Router --> A
+    Router --> B
+    Router --> C
+
+    %% Agents return results to Evaluator
+    A --> Evaluator
+    B --> Evaluator
+    C --> Evaluator
+
+    %% Evaluator takes action based on result
+    Evaluator -->|Fix Needed| D
+    D --> Evaluator
+    Evaluator -->|OK| End
+
+    %% Subgraph to group agents visually
+    subgraph "Knowledge Agents"
+        A[Pump Info Agent\nTool: Fetch Pump History]
+        B[Visual Inspection Agent\nTool: Camera/Report Parser]
+        C[Diagnostics Agent\nTool: Sensor Data Analysis]
+        D[Work Order Agent\nTool: Create/Track Orders]
+    end
